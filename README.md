@@ -10,9 +10,10 @@ It was originally designed to make zones to test signing with.
 
 ### Requirements.
 
-You must have [uv](https://docs.astral.sh/uv/) installed.
-You must have [rust](https://www.rust-lang.org/tools/install) installed to build dnst.
-You must have [dnst](https://github.com/NLnetLabs/dnst) installed.
+- You must have [uv](https://docs.astral.sh/uv/) installed.
+- You must have [rust](https://www.rust-lang.org/tools/install) installed to build dnst.
+- You must have [dnst](https://github.com/NLnetLabs/dnst) installed.
+- You must have [ldns](https://www.nlnetlabs.nl/projects/ldns/about/) installed.
 
 ### Example Installation (Debian Linux)
 
