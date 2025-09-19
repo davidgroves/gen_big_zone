@@ -26,6 +26,19 @@ def generate_random_ipv6() -> str:
     groups = [0xfd00] + [random.randint(0, 0xffff) for _ in range(7)]
     return ':'.join(f'{group:04x}' for group in groups)
 
+def generate_ds_record() -> str:
+    """Generate a random DS record for algorithm 13 (ECDSA P-256 with SHA-256)."""
+    # Algorithm 13 = ECDSA P-256 with SHA-256
+    # Digest Type 2 = SHA-256 (produces 32-byte/64-char hex digest)
+    key_tag = random.randint(1, 65535)
+    algorithm = 13  # ECDSA P-256 with SHA-256
+    digest_type = 2  # SHA-256
+    
+    # Generate a random 32-byte digest (64 hex characters)
+    digest = ''.join(random.choices('0123456789abcdef', k=64))
+    
+    return f'{key_tag} {algorithm} {digest_type} {digest}'
+
 def generate_delegation_chunk_simple(args):
     """Generate a chunk of delegations and return the text representation."""
     start_idx, end_idx, base_domain, ttl = args
@@ -53,6 +66,10 @@ def generate_delegation_chunk_simple(args):
             ipv6_addr = generate_random_ipv6()
             lines.append(f'ns{j}.{deleg_name} {ttl} IN A {ipv4_addr}')
             lines.append(f'ns{j}.{deleg_name} {ttl} IN AAAA {ipv6_addr}')
+        
+        # Add DS record for the delegated zone (since it's a signed zone)
+        ds_record = generate_ds_record()
+        lines.append(f'{deleg_name} {ttl} IN DS {ds_record}')
     
     return '\n'.join(lines)
 
