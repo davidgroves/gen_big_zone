@@ -1,0 +1,11 @@
+[project]
+name = "Zone Gen"
+version = "0.1.0"
+description = "Generates big zones for testing DNSSEC signing"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dnspython>=2.8.0",
+    "ipaddress>=1.0.23",
+    "tqdm>=4.67.1",
+]
