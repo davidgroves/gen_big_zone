@@ -1,5 +1,5 @@
 [project]
-name = "Zone Gen"
+name = "generate_zone"
 version = "0.1.0"
 description = "Generates big zones for testing DNSSEC signing"
 readme = "README.md"

@@ -217,6 +217,7 @@ __marimo__/
 
 # Zones
 *.zone
+*.com
 
 # Keys
 K*.private
