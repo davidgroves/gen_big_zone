@@ -69,12 +69,12 @@ $ ldns-verify-zone example.com.signed -k Kexample.com.+008+20632.key -k Kexample
 ## Performance Notes.
 
 - `generate_zone.py` will use all your CPU cores to generate the zonefile.
- - Takes around 1 min to generate a 5 million delegation zonefile.
+  - Takes around 1 min to generate a 5 million delegation zonefile.
 - `dnst signzone` runs in three stages.
- - Linear to load the zone (1 CPU) - quick
- - Parallel to sign the zone (all CPU's) - quick
- - Linear to link the NSEC records (1 CPU) - slow
- - Signing a 5 million delegation zonefile with NSEC took 27GB ram (peak) and around 35mins on my laptop.
+  - Linear to load the zone (1 CPU) - quick
+  - Parallel to sign the zone (all CPU's) - quick
+  - Linear to link the NSEC records (1 CPU) - slow
+  - Signing a 5 million delegation zonefile with NSEC took 27GB ram (peak) and around 35mins on my laptop.
 - `ldns-verify-zone` 
   - Runs linearly.
   - Takes around 27GB ram (peak) and around 11mins on my laptop.
