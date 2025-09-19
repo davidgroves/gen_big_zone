@@ -41,7 +41,7 @@ fi
 ```
 $ git clone <this_repo>
 $ uv sync
-$ uv run generate_zone.py
+$ uv run generate_zone.py --help
 ```
 
 ## Walkthrough
